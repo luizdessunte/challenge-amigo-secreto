@@ -1,41 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <title>Amigo Secreto</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Amigo Secreto!</title>
 </head>
 
 <body>
+    <!-- Adiciona barra de navegação -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#" id="openModal">Sobre</a></li>
+        </ul>
+    </nav>
     <main class="main-content">
         <header class="header-banner">
+            <!-- Imagem duplicada com a classe 'inverted' para inverter horizontalmente -->
+            <img class="header-img inverted" src="assets/amigo-secreto.png"
+                alt="Imagem representativa de amigo secreto">
             <h1 class="main-title">Amigo Secreto</h1>
-            <img src="assets/amigo-secreto.png" alt="Imagem representativa de amigo secreto">
+            <img class="header-img" src="assets/amigo-secreto.png" alt="Imagem representativa de amigo secreto">
         </header>
-        
+
         <section class="input-section">
-            <h2 class="section-title">Digite o nome dos seus amigos</h2>
+            <h2 class="section-title">Digite o nome dos seus amigos:</h2>
+            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
             <div class="input-wrapper">
                 <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
                 <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
             </div>
-           
-            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
+
             <ul id="resultado" class="result-list" aria-live="polite"></ul>
 
             <div class="button-container">
-                <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
+                <button class="button button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
                     <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
-                    Sortear amigo
+                    Iniciar Sorteio
+                </button>
+                <button class="button button-reset" onclick="reiniciarJogo()" aria-label="Reiniciar jogo">
+                    <img src="assets/pngwing.com.png" alt="Ícone para reiniciar">
+                    Reiniciar Jogo
                 </button>
             </div>
         </section>
     </main>
 
+    <!-- Floating Modal with Sobre content (same as the original Sobre page) -->
+    <div id="modalSobre" class="modal">
+        <div class="modal-content sobre-content">
+            <span class="modal-close">&times;</span>
+            <header class="sobre-header">
+                <h1>Sobre o Amigo Secreto:</h1>
+            </header>
+            <section class="sobre-introducao">
+                <h2>Introdução</h2>
+                <p>
+                    O Amigo Secreto é uma tradição seguida para aproximar as pessoas, tornando as celebrações, sejam
+                    elas de fim de ano, ou algum evento ainda mais divertidas.
+                    Criamos este site para o processo de sorteio ficar mais dinâmico e rápido, garantindo que cada
+                    participante receba um nome de forma completamente aleatória.
+                </p>
+            </section>
+            <section class="sobre-comofunciona">
+                <h2>Como Funciona</h2>
+                <p>
+                    Para começar a utilizar a funcionalidade de sorteio, basta digitar os nomes dos participantes no
+                    campo "Digite um nome" e clicar em "Adicionar". Pedimos para que você adicione no mínimo 3 nomes
+                    para iniciar o sorteio.
+                    O sistema embaralha os nomes e garante que ninguém sorteie seu próprio nome, exibindo o resultado
+                    completo da pessoa que retirou o nome de seu amigo.
+                </p>
+            </section>
+            <section class="sobre-objetivos">
+                <h2>Objetivos</h2>
+                <p>
+                    Este site foi desenvolvido com o intuito de facilitar a organização do Amigo Secreto, promovendo uma
+                    experiência dinâmica para todos os participantes. Através de uma interface intuitiva, o
+                    sistema busca garantir transparência e agilidade no sorteio.
+                </p>
+            </section>
+            <section class="sobre-detalhes">
+                <h2>Detalhes Técnicos</h2>
+                <p>
+                    Desenvolvido utilizando HTML, CSS e JavaScript, o site emprega técnicas de embaralhamento de arrays
+                    para assegurar a aleatoriedade do sorteio. Todo o design foi pensado para proporcionar uma
+                    experiência visual agradável e funcional, adaptando-se a diferentes dispositivos.
+                </p>
+            </section>
+        </div>
+    </div>
+
     <script src="app.js" defer></script>
 </body>
+
 </html>

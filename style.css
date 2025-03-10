@@ -1,162 +1,372 @@
+/* Variáveis do root: Define as cores principais utilizadas no site */
 :root {
-    --color-primary: #4B69FD;
-    --color-secondary: #FFF9EB;
-    --color-tertiary: #C4C4C4;
-    --color-button: #fe652b;
-    --color-button-hover: #e55720;
-    --color-text: #444444;
-    --color-white: #FFFFFF;
+  --color-primary: #162b94;
+  --color-secondary: #8ceffc;
+  --color-tertiary: #c4c4c4;
+  --color-button: #fe652b;
+  --color-button-hover: #e55720;
+  --color-text: #444444;
+  --color-white: #ffffff;
 }
 
-/* Estilos gerais */
+/* Reset global e definição de box-sizing para facilitar o layout */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Estilização do body: ocupar toda a tela e centralizar o conteúdo */
 body {
-    height: 100vh;
-    background-color: var(--color-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Barra de navegação: fixa no topo, com fundo e centralização dos itens */
+.navbar {
+  width: 100%;
+  background-color: var(--color-primary);
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Lista de navegação: layout flex para centralizar os itens */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Itens da navegação com espaçamento entre eles */
+.navbar li {
+  margin: 0 20px;
+}
+
+/* Links da navegação: fonte, borda e espaçamento */
+.navbar a {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #f0f0f0;
+  border: 1px solid var(--color-white);
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+/* Efeito hover para os links da nav */
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Container principal: organiza o conteúdo principal em coluna, com margem para a navbar */
 .main-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 60px; /* espaço para a barra de navegação */
 }
 
-/* Banner */
+/* Cabeçalho de banner: alinha imagens e título, centralizando o conteúdo */
 .header-banner {
-    flex: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 0;
 }
 
-/* Seção de entrada */
+/* Espaçamento entre o título e as imagens do banner */
+.header-banner .main-title {
+  margin-left: 20px;
+}
+
+/* Imagens do banner: espaçamento entre elas e configuração de inversão */
+.header-banner .header-img {
+  margin: 0 20px;
+}
+.header-banner .header-img.inverted {
+  transform: scaleX(-1);
+}
+
+/* Seção de entrada: área onde se inserem nomes, com fundo e borda arredondada */
 .input-section {
-    flex: 60%;
-    background-color: var(--color-secondary);
-    border: 1px solid #000;
-    border-radius: 64px 64px 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
+  flex: 60%;
+  background-color: var(--color-secondary);
+  border: 1px solid #000;
+  border-radius: 64px 64px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
 }
 
-/* Títulos */
+/* Estilo para o título principal (na página ou seção) */
 .main-title {
-    font-size: 48px;
-    font-family: "Merriweather", serif;
-    font-weight: 900;
-    font-style: italic;
-    color: var(--color-white);
+  font-size: 56px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #f0f0f0;
 }
 
+/* Título das seções, com destaque e borda inferior */
 .section-title {
-    font-family: "Inter", serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin: 10px 0;
-    text-align: center;
+  font-family: "Inter", serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #f0f0f0;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 8px;
+  margin: 10px 0 16px;
+  text-align: center;
 }
 
-/* Contêineres de entrada e botão */
+/* Adiciona dois pontos ao final do título */
+.section-title::after {
+  content: ":";
+  margin-left: 4px;
+}
+
+/* Estilos para os títulos dentro do conteúdo "Sobre" */
+.sobre-content h2 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #f0f0f0;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 8px;
+  margin: 10px 0 16px;
+  text-align: center;
+}
+.sobre-content h2::after {
+  content: ":";
+  margin-left: 4px;
+}
+
+/* Estilo padrão para parágrafos */
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #f0f0f0;
+  margin: 12px 0;
+}
+
+/* Estilos para o container do campo de entrada */
 .input-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
 }
 
+/* Campo de entrada: configurações de padding, borda e tamanho */
 .input-name {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #000;
-    border-radius: 25px 0 0 25px;
-    font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 25px 0 0 25px;
+  font-size: 16px;
 }
 
+/* Container dos botões: define largura e espaçamento entre eles */
 .button-container {
-    width: 300px;
-    justify-content: center;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* Estilos de entrada de texto */
+/* Estilo para entrada adicional de texto (se houver) */
 .input-title {
-    flex: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #333;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    font-family: "Merriweather", serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #333;
+  border-right: none;
+  border-radius: 25px 0 0 25px;
+  font-family: "Merriweather", serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos de botão */
+/* Estilo genérico para botões */
 button {
-    padding: 15px 30px;
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    border: 2px solid #000;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
+  padding: 15px 30px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  border: 2px solid #000;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
+/* Botão para adicionar: cor de fundo e estilo */
 .button-add {
-    background-color: var(--color-tertiary);
-    color: var(--color-text);
-    border-radius: 0 25px 25px 0;
+  background-color: var(--color-tertiary);
+  color: var(--color-text);
+  border-radius: 0 25px 25px 0;
 }
-
 .button-add:hover {
-    background-color: #a1a1a1;
+  background-color: #a1a1a1;
 }
 
-/* Listas */
+/* Lista de nomes e resultado: estilo de lista sem marcadores */
 ul {
-    list-style-type: none;
-    color: var(--color-text);
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
-    margin: 20px 0;
+  list-style-type: none;
+  color: var(--color-text);
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  margin: 20px 0;
 }
-
 .result-list {
-    margin-top: 15px;
-    color: #05DF05;
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
+  margin-top: 15px;
+  color: #030303fd;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
 }
 
-/* Botão de sortear título */
-.button-draw {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 10px 40px;
-    color: var(--color-white);
-    background-color: var(--color-button);
-    font-size: 16px;
+/* Estilo genérico para botões reutilizáveis */
+.button {
+  display: flex;
+  align-items: center;
+  padding: 10px 40px;
+  color: var(--color-white);
+  background-color: var(--color-button);
+  font-size: 16px;
+  border: 2px solid #000;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.button:hover {
+  background-color: var(--color-button-hover);
+}
+.button img {
+  margin-right: 40px;
+  width: 24px;
+  height: auto;
+  filter: brightness(0) invert(1);
 }
 
-.button-draw img {
-    margin-right: 40px;
+/* Botões específicos para sortear e reiniciar */
+.button-draw,
+.button-reset {
+  width: 100%;
+}
+.button-draw img,
+.button-reset img {
+  margin-right: 40px;
+  width: 24px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+.button-draw:hover,
+.button-reset:hover {
+  background-color: var(--color-button-hover);
 }
 
-.button-draw:hover {
-    background-color: var(--color-button-hover);
+/* Container do conteúdo "Sobre" (para modal ou página) */
+.sobre-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+/* Ajusta cor do título na seção de entrada */
+.input-section .section-title {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+/* Espaçamento entre seções dentro do conteúdo "Sobre" */
+.sobre-content section {
+  margin-bottom: 40px;
+}
+
+/* Estilos para títulos e parágrafos dentro do conteúdo "Sobre" */
+.sobre-content h2 {
+  margin-bottom: 16px;
+  font-size: 42px;
+  color: #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 4px;
+}
+.sobre-content p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #f0f0f0;
+  margin: 12px 0;
+}
+
+/* Animação para o efeito de flutuação (modal) */
+@keyframes floatEffect {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Estilização do Modal: sobreposição na tela */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Conteúdo do Modal: janela flutuante com efeito e texto alinhado */
+.modal-content {
+  background-color: var(--color-primary);
+  margin: 10% auto;
+  padding: 40px;
+  border: 1px solid #f0f0f0;
+  width: 80%;
+  max-width: 800px;
+  color: #f0f0f0;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  animation: floatEffect 0.5s ease-out;
+  text-align: left;
+}
+
+/* Botão de fechamento do Modal */
+.modal-close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  color: var(--color-primary);
+  padding: 5px 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  margin-bottom: 15px;
+}
+.modal-close:hover {
+  background-color: #e55720;
+}
+
+/* Destaque para a palavra "Sorteou" dentro dos resultados */
+.highlight-sorteou {
+  color: red;
 }
